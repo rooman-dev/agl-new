@@ -1,0 +1,38 @@
+.typewriter {
+  display: inline;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  color: var(--accent-blue);
+  font-weight: 400;
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+[dir="rtl"] .typewriter-cursor {
+  margin-left: 0;
+  margin-right: 2px;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.typewriter.complete .typewriter-cursor {
+  display: none;
+}
+
+/* Gradient text support for TypeWriter */
+.typewriter.gradient-text,
+.typewriter .highlight {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

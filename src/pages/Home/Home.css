@@ -2,14 +2,12 @@
   background: var(--dark-bg);
   background-image: var(--gradient-mesh);
   color: var(--text-white);
-  padding: 80px 0 100px;
+  padding: 40px 0 100px;
   position: relative;
   overflow: hidden;
   min-height: 90vh;
   display: flex;
   align-items: center;
-  padding-top: 0px !important;
-
 }
 
 .hero::before {
@@ -41,7 +39,7 @@
 }
 
 .hero h1 {
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(2.5rem, 8vw, 6rem);
   font-weight: 800;
   color: var(--text-white);
   line-height: 1.1;
@@ -49,10 +47,12 @@
   letter-spacing: -0.04em;
   max-width: 100%;
   text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 [dir="rtl"] .hero h1 {
-  font-size: clamp(3rem, 9vw, 6.5rem);
+  font-size: clamp(2.5rem, 9vw, 6.5rem);
   text-align: right;
 }
 

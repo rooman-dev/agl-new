@@ -1,6 +1,6 @@
 .consultation-hero {
-  background: var(--gradient-accent);
-  padding: 180px 0 120px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F5F7FA 100%);
+  padding: 40px 0 100px;
   text-align: left;
   position: relative;
   overflow: hidden;
@@ -17,7 +17,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background: radial-gradient(circle at 50% 30%, rgba(0, 102, 255, 0.04) 0%, transparent 60%);
+  pointer-events: none;
 }
 
 .consultation-hero .container {
@@ -42,7 +43,7 @@
 }
 
 .consultation-hero h1 {
-  color: var(--white);
+  color: var(--primary-navy);
   font-size: clamp(3rem, 10vw, 6rem);
   font-weight: 800;
   margin-bottom: 2rem;
@@ -57,7 +58,7 @@
 }
 
 .consultation-hero p {
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--primary-blue);
   font-size: 1.35rem;
   max-width: 55ch;
   margin: 0;

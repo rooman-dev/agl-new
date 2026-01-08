@@ -2,10 +2,11 @@ import { useState, FormEvent, FC } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '@context/LanguageContext';
 import TypeWriter from '@/components/TypeWriter';
+import apiService from '@/services/api';
 import './Consultation.css';
 
 const Consultation: FC = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,6 +19,7 @@ const Consultation: FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -27,12 +29,21 @@ const Consultation: FC = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage('');
     
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await apiService.sendConsultationForm({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        service: formData.service,
+        budget: formData.budget,
+        message: formData.message,
+      });
       setIsComplete(true);
-    } catch {
-      // Handle error
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to send consultation request');
     } finally {
       setIsSubmitting(false);
     }
@@ -49,21 +60,18 @@ const Consultation: FC = () => {
       <>
         <Helmet>
           <title>{t('consultation_hero_title')} - AdsGeniusLab</title>
-          <html lang={language} dir={language === 'ar' ? 'rtl' : 'ltr'} />
         </Helmet>
-        <main>
-          <section className="success-section">
-            <div className="container">
-              <div className="success-content">
-                <div className="success-icon">
-                  <i className="fas fa-check-circle"></i>
-                </div>
-                <h1>{t('form_success')}</h1>
-                <p>We'll be in touch within 24 hours to schedule your consultation.</p>
+        <section className="success-section">
+          <div className="container">
+            <div className="success-content">
+              <div className="success-icon">
+                <i className="fas fa-check-circle"></i>
               </div>
+              <h1>{t('form_success')}</h1>
+              <p>{t('consultation_success_message')}</p>
             </div>
-          </section>
-        </main>
+          </div>
+        </section>
       </>
     );
   }
@@ -73,11 +81,9 @@ const Consultation: FC = () => {
       <Helmet>
         <title>{t('consultation_hero_title')} - AdsGeniusLab</title>
         <meta name="description" content={t('consultation_hero_subtitle')} />
-        <html lang={language} dir={language === 'ar' ? 'rtl' : 'ltr'} />
       </Helmet>
 
-      <main>
-        {/* Hero Section */}
+      {/* Hero Section */}
         <section className="consultation-hero">
           <div className="container">
             <div className="hero-content fade-in-up">
@@ -115,6 +121,12 @@ const Consultation: FC = () => {
           <div className="container">
             <div className="form-wrapper fade-in-up" style={{ animationDelay: '0.2s' }}>
               <h2>{t('consultation_form_title')}</h2>
+              
+              {errorMessage && (
+                <div className="error-message" style={{ color: '#dc3545', padding: '1rem', marginBottom: '1rem', background: 'rgba(220, 53, 69, 0.1)', borderRadius: '8px' }}>
+                  <i className="fas fa-exclamation-circle"></i> {errorMessage}
+                </div>
+              )}
               
               <form onSubmit={handleSubmit}>
                 <div className="form-grid">
@@ -175,7 +187,7 @@ const Consultation: FC = () => {
                       onChange={handleChange}
                       required
                     >
-                      <option value="">Select a service</option>
+                      <option value="">{t('consultation_select_service')}</option>
                       <option value="seo">{t('services_seo_title')}</option>
                       <option value="social">{t('services_social_title')}</option>
                       <option value="content">{t('services_content_title')}</option>
@@ -191,11 +203,11 @@ const Consultation: FC = () => {
                       value={formData.budget}
                       onChange={handleChange}
                     >
-                      <option value="">Select budget range</option>
-                      <option value="<1000">Less than $1,000/month</option>
-                      <option value="1000-5000">$1,000 - $5,000/month</option>
-                      <option value="5000-10000">$5,000 - $10,000/month</option>
-                      <option value="10000+">$10,000+/month</option>
+                      <option value="">{t('consultation_select_budget')}</option>
+                      <option value="<1000">{t('consultation_budget_1')}</option>
+                      <option value="1000-5000">{t('consultation_budget_2')}</option>
+                      <option value="5000-10000">{t('consultation_budget_3')}</option>
+                      <option value="10000+">{t('consultation_budget_4')}</option>
                     </select>
                   </div>
                 </div>
@@ -218,7 +230,7 @@ const Consultation: FC = () => {
                   {isSubmitting ? (
                     <>
                       <i className="fas fa-spinner fa-spin"></i>
-                      Submitting...
+                      {t('consultation_submitting')}
                     </>
                   ) : (
                     <>
@@ -231,7 +243,6 @@ const Consultation: FC = () => {
             </div>
           </div>
         </section>
-      </main>
     </>
   );
 };

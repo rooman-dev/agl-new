@@ -39,9 +39,6 @@ const Home: FC = () => {
               </h1>
             </RevealText>
             <RevealText direction="up" delay={200}>
-              <p className="hero-description">{t('hero_description')}</p>
-            </RevealText>
-            <RevealText direction="up" delay={300}>
               <div className="hero-buttons">
                 <Link to="/consultation" className="btn-primary-custom">
                   <i className="fas fa-comments"></i> {t('btn_talk_growth')}

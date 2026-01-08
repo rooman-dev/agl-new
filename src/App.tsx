@@ -8,10 +8,10 @@ import { BlogProvider } from '@/context/BlogContext';
 import { AdminProvider } from '@/context/AdminContext';
 
 // Components
-import Navbar from '@components/Navbar';
-import Footer from '@components/Footer';
+import Layout from '@/components/Layout';
 import CookieConsent from '@components/CookieConsent';
 import AIChatbot from '@components/AIChatbot';
+import ScrollProgress from '@/components/ScrollProgress';
 
 // Pages
 import Home from '@pages/Home';
@@ -50,6 +50,7 @@ function App() {
           <AdminProvider>
             <Router>
               <ScrollToTop />
+              <ScrollProgress />
               <Routes>
                 {/* Admin Routes - No Navbar/Footer */}
                 <Route path="/admin" element={<AdminLogin />} />
@@ -59,17 +60,17 @@ function App() {
                 <Route path="/admin/posts/new" element={<BlogEditor />} />
                 <Route path="/admin/posts/:id/edit" element={<BlogEditor />} />
                 
-                {/* Public Routes - With Navbar/Footer */}
-                <Route path="/" element={<><Navbar /><Home /><Footer /></>} />
-                <Route path="/about" element={<><Navbar /><About /><Footer /></>} />
-                <Route path="/services" element={<><Navbar /><Services /><Footer /></>} />
-                <Route path="/blog" element={<><Navbar /><Blog /><Footer /></>} />
-                <Route path="/blog/:slug" element={<><Navbar /><BlogPost /><Footer /></>} />
-                <Route path="/contact" element={<><Navbar /><Contact /><Footer /></>} />
-                <Route path="/consultation" element={<><Navbar /><Consultation /><Footer /></>} />
-                <Route path="/privacy-policy" element={<><Navbar /><PrivacyPolicy /><Footer /></>} />
-                <Route path="/terms" element={<><Navbar /><Terms /><Footer /></>} />
-                <Route path="*" element={<><Navbar /><NotFound /><Footer /></>} />
+                {/* Public Routes - With Layout (Navbar/Footer) */}
+                <Route path="/" element={<Layout><Home /></Layout>} />
+                <Route path="/about" element={<Layout><About /></Layout>} />
+                <Route path="/services" element={<Layout><Services /></Layout>} />
+                <Route path="/blog" element={<Layout><Blog /></Layout>} />
+                <Route path="/blog/:slug" element={<Layout><BlogPost /></Layout>} />
+                <Route path="/contact" element={<Layout><Contact /></Layout>} />
+                <Route path="/consultation" element={<Layout><Consultation /></Layout>} />
+                <Route path="/privacy-policy" element={<Layout><PrivacyPolicy /></Layout>} />
+                <Route path="/terms" element={<Layout><Terms /></Layout>} />
+                <Route path="*" element={<Layout><NotFound /></Layout>} />
               </Routes>
               <AIChatbot />
               <CookieConsent />

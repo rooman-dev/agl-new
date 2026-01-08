@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/context/LanguageContext';
+import LanguageToggle from '@/components/LanguageToggle';
 import './Navbar.css';
 
 const Navbar: React.FC = () => {
@@ -79,6 +80,9 @@ const Navbar: React.FC = () => {
               </li>
             ))}
           </ul>
+          <div className="navbar-actions">
+            <LanguageToggle />
+          </div>
         </div>
       </div>
     </nav>

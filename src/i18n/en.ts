@@ -9,34 +9,34 @@ export const en = {
 
   // Hero Section
   hero_subheading: 'Growth Marketing for Clear-Cut Impact',
-  hero_title_part1: 'We deliver growth through',
-  hero_title_part2: 'Traffic Generation',
+  hero_title_part1: 'We deliver scalable growth through',
+  hero_title_part2: 'Strategic Traffic Generation',
   hero_title_part3: ', Conversion Rate, and',
-  hero_title_part4: 'Lifetime Value',
+  hero_title_part4: 'Customer Lifetime Value',
   hero_title_part5: 'Optimization',
-  hero_description: 'Data-driven strategies, AI-powered optimization, and deep technical expertise to generate direct, measurable growth for ambitious businesses.',
+  hero_description: 'Data-driven strategies, AI-powered optimization, and deep technical expertise to generate direct, measurable growth for ambitious businesses. We transform your digital challenges into sustainable competitive advantages.',
   btn_talk_growth: "Let's Talk Growth",
   btn_what_we_do: 'What We Do',
 
   // Feature Cards
   feature_growth: 'Strategic Growth',
-  feature_growth_desc: 'Data-driven strategies designed to maximize your ROI and market presence.',
+  feature_growth_desc: 'Our data-driven approach analyzes market trends, customer behavior, and competitive landscapes to craft strategies that maximize ROI and establish dominant market presence.',
   feature_team: 'Expert Team',
-  feature_team_desc: 'Dedicated professionals with years of experience in digital marketing excellence.',
+  feature_team_desc: 'Award-winning professionals with 10+ years of collective experience across SEO, PPC, social media, and content marketing. Your success is powered by industry veterans.',
   feature_results: 'Proven Results',
-  feature_results_desc: 'Delivering measurable results and continuous optimization for sustained success.',
+  feature_results_desc: 'We have helped 500+ businesses achieve an average 280% increase in qualified leads. Our commitment to continuous optimization ensures sustained, measurable success.',
 
   // CTA
   cta_ready: 'Ready to Elevate Your Brand?',
-  cta_description: 'Join hundreds of successful businesses that have transformed their digital presence with AdsGeniusLab.',
+  cta_description: 'Join hundreds of successful businesses that have transformed their digital presence with AdsGeniusLab. Start your growth journey with a complimentary strategy session.',
   btn_consultation: 'Schedule Your Free Consultation',
   cta_title: 'Ready to Transform Your Digital Presence?',
-  cta_desc: "Let's discuss how we can create a customized marketing strategy tailored to your unique business goals and challenges.",
+  cta_desc: "Partner with us to create a customized marketing strategy tailored to your unique business goals. Our team will analyze your current position, identify growth opportunities, and develop a roadmap for success.",
   btn_schedule: 'Schedule Your Free Consultation',
 
   // Trusted Section
   trusted_heading: 'Trusted by Leading Brands',
-  trusted_description: 'We work with innovative companies across multiple industries',
+  trusted_description: 'From startups to Fortune 500 companies, we partner with innovative businesses across e-commerce, SaaS, healthcare, finance, and retail industries',
 
   // Stats Section
   stat_campaigns: 'Successful Campaigns',
@@ -45,54 +45,64 @@ export const en = {
   stat_industries: 'Industries Served',
 
   // Industries Text
-  industries_text: '50+ companies across 15+ industries have achieved their growth goals with AdsGeniusLab',
+  industries_text: '500+ companies across 15+ industries have achieved their growth goals with AdsGeniusLab, generating over $50M in attributed revenue',
 
   // Services Page
   services_hero_title: 'Our Services',
-  services_hero_subtitle: 'Comprehensive digital marketing solutions tailored to drive your business growth.',
+  services_hero_subtitle: 'Comprehensive digital marketing solutions designed to accelerate your business growth. We combine cutting-edge technology with proven strategies to deliver exceptional results.',
   services_seo_title: 'SEO Optimization',
-  services_seo_desc: 'Improve your search engine rankings and drive organic traffic with our proven SEO strategies.',
+  services_seo_desc: 'Dominate search rankings with our comprehensive SEO strategies. We conduct in-depth keyword research, technical audits, on-page optimization, and build high-authority backlinks to drive sustainable organic traffic growth.',
   services_social_title: 'Social Media Marketing',
-  services_social_desc: 'Build your brand presence and engage with your audience across all major social platforms.',
+  services_social_desc: 'Build an engaged community around your brand. Our social media experts craft platform-specific strategies, create compelling content, and manage paid campaigns to increase brand awareness and drive conversions.',
   services_content_title: 'Content Strategy',
-  services_content_desc: 'Create compelling content that resonates with your audience and drives conversions.',
+  services_content_desc: 'Tell your brand story effectively with content that converts. From blog posts and whitepapers to videos and infographics, we create SEO-optimized content that establishes thought leadership and nurtures leads.',
   services_ppc_title: 'PPC Advertising',
-  services_ppc_desc: 'Maximize your ROI with targeted pay-per-click campaigns across Google and social media.',
+  services_ppc_desc: 'Maximize your advertising ROI with precision-targeted campaigns. Our certified Google and Meta Ads specialists optimize bidding strategies, ad creative, and landing pages to reduce cost-per-acquisition.',
   services_email_title: 'Email Marketing',
-  services_email_desc: 'Nurture leads and drive conversions with personalized email campaigns.',
+  services_email_desc: 'Transform your email list into a revenue engine. We design automated workflows, segment audiences, and craft personalized campaigns that nurture leads, recover abandoned carts, and drive repeat purchases.',
   services_analytics_title: 'Analytics & Reporting',
-  services_analytics_desc: 'Make data-driven decisions with comprehensive analytics and detailed reporting.',
+  services_analytics_desc: 'Make confident decisions with data-driven insights. Our comprehensive dashboards track KPIs, measure attribution, and identify opportunities for optimization across all your marketing channels.',
 
   // About Page
   about_hero_title: 'About Us',
-  about_hero_subtitle: 'We are passionate about helping businesses grow through innovative digital marketing strategies.',
+  about_hero_subtitle: 'We are a team of passionate digital marketing experts dedicated to helping businesses of all sizes achieve extraordinary growth through innovative, data-driven strategies.',
   about_mission_title: 'Our Mission',
-  about_mission_desc: 'To empower businesses with cutting-edge digital marketing solutions that drive measurable growth and lasting success.',
+  about_mission_desc: 'To empower businesses worldwide with cutting-edge digital marketing solutions that drive measurable growth, build lasting customer relationships, and create sustainable competitive advantages in an ever-evolving digital landscape.',
   about_vision_title: 'Our Vision',
-  about_vision_desc: 'To be the leading digital marketing partner for ambitious businesses worldwide.',
-  about_values_title: 'Our Values',
+  about_vision_desc: 'To be the most trusted digital marketing partner for ambitious businesses globally, known for our innovative approach, transparent partnerships, and unwavering commitment to delivering exceptional results.',
+  about_values_title: 'Our Core Values',
   about_value_innovation: 'Innovation',
+  about_value_innovation_desc: 'We stay ahead of industry trends, continuously exploring new technologies and strategies to give our clients a competitive edge.',
   about_value_integrity: 'Integrity',
+  about_value_integrity_desc: 'We believe in transparent communication, honest reporting, and building lasting relationships based on trust and mutual respect. Every decision we make prioritizes your success.',
   about_value_excellence: 'Excellence',
+  about_value_excellence_desc: 'We hold ourselves to the highest standards, delivering quality work that exceeds expectations and drives real business impact.',
   about_value_collaboration: 'Collaboration',
+  about_value_collaboration_desc: 'We work as an extension of your team, fostering open communication and shared goals to achieve remarkable outcomes together.',
+  about_story_title: 'Our Story',
+  about_story_desc: 'Founded in 2020, AdsGeniusLab emerged from a simple belief: every business deserves access to world-class digital marketing expertise. What started as a small team of passionate marketers has grown into a full-service agency serving clients across 15+ countries.',
+  about_approach_title: 'Our Approach',
+  about_approach_desc: 'We combine creative thinking with analytical rigor. Every strategy we develop is backed by thorough research, tested methodologies, and real-time data analysis to ensure maximum impact for your investment.',
 
   // Contact Page
   contact_hero_title: 'Contact Us',
-  contact_hero_subtitle: 'Get in touch with our team to discuss how we can help your business grow.',
+  contact_hero_subtitle: "Have a project in mind? We'd love to hear from you. Reach out and let's start a conversation about how we can help your business thrive in the digital world.",
   contact_form_name: 'Your Name',
   contact_form_email: 'Email Address',
   contact_form_phone: 'Phone Number',
   contact_form_subject: 'Subject',
   contact_form_message: 'Your Message',
   contact_form_submit: 'Send Message',
-  contact_info_title: 'Contact Information',
+  contact_info_title: 'Get In Touch',
+  contact_info_subtitle: 'Our team is available 24/7 to answer your questions and discuss your digital marketing needs.',
   contact_info_email: 'Email Us',
   contact_info_phone: 'Call Us',
   contact_info_whatsapp: 'WhatsApp Us',
+  contact_response_time: 'Average response time: 2 hours during business hours',
 
   // Consultation Page
   consultation_hero_title: 'Free Consultation',
-  consultation_hero_subtitle: "Let's discuss how we can transform your digital presence and drive growth for your business",
+  consultation_hero_subtitle: "Ready to accelerate your growth? Book a complimentary strategy session with our experts. We'll analyze your current digital presence, identify opportunities, and outline a customized roadmap to achieve your goals.",
   consultation_form_title: 'Schedule Your Consultation',
   consultation_form_name: 'Full Name',
   consultation_form_email: 'Email Address',
@@ -103,13 +113,18 @@ export const en = {
   consultation_form_budget: 'Monthly Budget',
   consultation_form_message: 'Tell us about your project',
   consultation_form_submit: 'Request Consultation',
-  consultation_why_title: 'Why Choose Us',
+  consultation_why_title: 'Why Choose AdsGeniusLab',
   consultation_why_expert: 'Expert Consultation',
-  consultation_why_expert_desc: 'Get insights from industry professionals with years of experience.',
+  consultation_why_expert_desc: 'Get strategic insights from certified professionals with 10+ years of experience across diverse industries. We understand your challenges and know what works.',
   consultation_why_custom: 'Customized Strategies',
-  consultation_why_custom_desc: 'Tailored solutions designed specifically for your business needs.',
-  consultation_why_results: 'Proven Results',
-  consultation_why_results_desc: 'Track record of delivering measurable growth for our clients.',
+  consultation_why_custom_desc: 'No cookie-cutter solutions here. Every strategy is tailored to your unique business model, target audience, competitive landscape, and growth objectives.',
+  consultation_why_results: 'Proven Track Record',
+  consultation_why_results_desc: 'Our clients see an average 280% increase in qualified leads and 150% improvement in conversion rates within the first 6 months of partnership.',
+  consultation_what_expect: 'What to Expect',
+  consultation_expect_1: 'Comprehensive audit of your current digital presence',
+  consultation_expect_2: 'Competitive analysis and market opportunity assessment',
+  consultation_expect_3: 'Customized growth strategy recommendations',
+  consultation_expect_4: 'Clear timeline and investment overview',
 
   // Blog Page
   blog_hero_title: 'Perspectives & Insights',
@@ -160,7 +175,7 @@ export const en = {
 
   // Footer
   footer_company_name: 'AdsGeniusLab',
-  footer_company_desc: 'Transforming businesses through innovative digital marketing solutions worldwide.',
+  footer_company_desc: 'Transforming businesses through innovative digital marketing solutions. We combine creativity, data, and technology to deliver measurable growth for ambitious brands worldwide.',
   footer_quick_links: 'Quick Links',
   footer_what_we_do: 'What We Do',
   footer_contact_info: 'Contact Info',
@@ -173,12 +188,14 @@ export const en = {
   footer_social: 'Social Media Marketing',
   footer_content: 'Content Strategy',
   footer_ppc: 'PPC Advertising',
-  footer_email: 'adsgeniuslab@gmail.com',
+  footer_email: 'roomankhan2512@gmail.com',
   footer_phone: '+92 318 1292628',
   footer_whatsapp: 'WhatsApp Us',
   footer_copyright: '© 2025 AdsGeniusLab. All rights reserved.',
   footer_privacy: 'Privacy Policy',
   footer_terms: 'Terms of Service',
+  footer_tagline: 'Your Growth Partner',
+  footer_cta: 'Ready to grow? Start your journey today.',
 
   // Cookie Consent
   cookie_title: 'We Use Cookies',
@@ -220,6 +237,27 @@ export const en = {
   form_error: 'Oops! Something went wrong. Please try again.',
   form_required: 'This field is required',
   form_invalid_email: 'Please enter a valid email address',
+
+  // Blog Post Page
+  blog_share_title: 'Share This Article',
+  blog_related_posts: 'Related Posts',
+  
+  // Contact Page Extra
+  contact_form_title: 'Send us a Message',
+  contact_send_another: 'Send Another Message',
+  
+  // Consultation Extra
+  consultation_success_message: "We'll be in touch within 24 hours to schedule your consultation.",
+  consultation_submitting: 'Submitting...',
+  consultation_select_service: 'Select a service',
+  consultation_select_budget: 'Select budget range',
+  consultation_budget_1: 'Less than $1,000/month',
+  consultation_budget_2: '$1,000 - $5,000/month',
+  consultation_budget_3: '$5,000 - $10,000/month',
+  consultation_budget_4: '$10,000+/month',
+  
+  // Contact Page Extra
+  contact_sending: 'Sending...',
 };
 
 export type TranslationKey = keyof typeof en;

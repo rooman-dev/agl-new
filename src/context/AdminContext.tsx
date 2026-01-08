@@ -1,50 +1,81 @@
 import { createContext, useContext, useState, useEffect, useCallback, ReactNode, FC } from 'react';
+import apiService from '../services/api';
 
 interface AdminContextType {
   isAuthenticated: boolean;
-  login: (password: string) => boolean;
+  loading: boolean;
+  user: { id: number; username: string } | null;
+  login: (username: string, password: string) => Promise<boolean>;
   logout: () => void;
+  changePassword: (currentPassword: string, newPassword: string) => Promise<void>;
 }
 
 const AdminContext = createContext<AdminContextType | undefined>(undefined);
 
-const ADMIN_PASSWORD = 'agl@admin2024'; // In production, use proper authentication
-const AUTH_KEY = 'agl_admin_auth';
+const TOKEN_KEY = 'agl_admin_token';
 
 interface AdminProviderProps {
   children: ReactNode;
 }
 
 export const AdminProvider: FC<AdminProviderProps> = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = sessionStorage.getItem(AUTH_KEY);
-      return saved === 'true';
-    }
-    return false;
-  });
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [user, setUser] = useState<{ id: number; username: string } | null>(null);
 
+  // Check for existing token on mount
   useEffect(() => {
-    sessionStorage.setItem(AUTH_KEY, isAuthenticated.toString());
-  }, [isAuthenticated]);
+    const verifyExistingToken = async () => {
+      const token = sessionStorage.getItem(TOKEN_KEY);
+      if (token) {
+        try {
+          const result = await apiService.verifyToken();
+          if (result.valid) {
+            setIsAuthenticated(true);
+            setUser({ id: result.user.userId, username: result.user.username });
+          } else {
+            sessionStorage.removeItem(TOKEN_KEY);
+          }
+        } catch {
+          sessionStorage.removeItem(TOKEN_KEY);
+        }
+      }
+      setLoading(false);
+    };
 
-  const login = useCallback((password: string): boolean => {
-    if (password === ADMIN_PASSWORD) {
+    verifyExistingToken();
+  }, []);
+
+  const login = useCallback(async (username: string, password: string): Promise<boolean> => {
+    try {
+      const result = await apiService.login(username, password);
+      sessionStorage.setItem(TOKEN_KEY, result.token);
       setIsAuthenticated(true);
+      setUser(result.user);
       return true;
+    } catch (error) {
+      console.error('Login error:', error);
+      return false;
     }
-    return false;
   }, []);
 
   const logout = useCallback(() => {
+    sessionStorage.removeItem(TOKEN_KEY);
     setIsAuthenticated(false);
-    sessionStorage.removeItem(AUTH_KEY);
+    setUser(null);
+  }, []);
+
+  const changePassword = useCallback(async (currentPassword: string, newPassword: string): Promise<void> => {
+    await apiService.changePassword(currentPassword, newPassword);
   }, []);
 
   const value: AdminContextType = {
     isAuthenticated,
+    loading,
+    user,
     login,
     logout,
+    changePassword,
   };
 
   return (

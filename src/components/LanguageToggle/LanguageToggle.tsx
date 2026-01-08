@@ -16,7 +16,7 @@ const LanguageToggle: FC = () => {
       />
       <span className="toggle-slider">
         <span className="toggle-label-text toggle-label-en">EN</span>
-        <span className="toggle-label-text toggle-label-ar">العربية</span>
+        <span className="toggle-label-text toggle-label-ar">AR</span>
       </span>
     </label>
   );

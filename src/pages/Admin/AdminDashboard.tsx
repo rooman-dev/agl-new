@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { useAdmin } from '@/context/AdminContext';
 import { useBlog } from '@/context/BlogContext';
 import './AdminDashboard.css';
@@ -12,8 +12,7 @@ const AdminDashboard: FC = () => {
 
   // Redirect if not authenticated
   if (!isAuthenticated) {
-    navigate('/admin/login');
-    return null;
+    return <Navigate to="/admin/login" replace />;
   }
 
   const handleLogout = () => {

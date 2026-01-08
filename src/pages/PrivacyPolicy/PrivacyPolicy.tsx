@@ -3,17 +3,15 @@ import { useLanguage } from '@context/LanguageContext';
 import './PrivacyPolicy.css';
 
 const PrivacyPolicy = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <>
       <Helmet>
         <title>{t('privacy_title')} - AdsGeniusLab</title>
-        <html lang={language} dir={language === 'ar' ? 'rtl' : 'ltr'} />
       </Helmet>
 
-      <main>
-        <section className="legal-hero">
+      <section className="legal-hero">
           <div className="container">
             <h1>{t('privacy_title')}</h1>
             <p>{t('privacy_last_updated')}</p>
@@ -79,7 +77,6 @@ const PrivacyPolicy = () => {
             </div>
           </div>
         </section>
-      </main>
     </>
   );
 };

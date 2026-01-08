@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '@/context/LanguageContext';
@@ -7,14 +7,6 @@ import './Services.css';
 
 const Services: FC = () => {
   const { t } = useLanguage();
-
-  // Add light-page class to body for navbar styling
-  useEffect(() => {
-    document.body.classList.add('light-page');
-    return () => {
-      document.body.classList.remove('light-page');
-    };
-  }, []);
 
   const services = [
     {

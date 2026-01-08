@@ -492,18 +492,32 @@ h1, h2 {
 }
 
 /* Enable outline hover on hero headings and major section headings */
+/* Light background pages - navy outline */
 .page-hero h1:hover,
-.hero h1:hover,
 .consultation-hero h1:hover,
-.cta-section h2:hover,
-.services-cta h2:hover,
-.trusted-section h2:hover,
-.values-section h2:hover,
-section > .container > h1:hover,
-section > .container > h2:hover {
+.contact-hero h1:hover {
   color: transparent !important;
   -webkit-text-fill-color: transparent !important;
-  -webkit-text-stroke: 2px var(--white);
+  -webkit-text-stroke: 2px var(--primary-navy);
+}
+
+/* Dark background pages - white outline */
+.hero h1:hover,
+.cta-section h2:hover,
+.trusted-section h2:hover,
+.values-section h2:hover {
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  -webkit-text-stroke: 2px #FFFFFF !important;
+}
+
+/* Services CTA has dark background - use white outline */
+.services-cta h2:hover,
+section.services-cta h2:hover,
+section.services-cta > .container > h2:hover {
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  -webkit-text-stroke: 2px #FFFFFF !important;
 }
 
 /* Disable hover outline inside cards, footer, nav - small text readability */
@@ -871,6 +885,63 @@ section {
   animation: glow 2s ease-in-out infinite;
 }
 
+/* Scroll Reveal Animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Scroll reveal delay classes */
+.scroll-delay-1 { transition-delay: 0.1s; }
+.scroll-delay-2 { transition-delay: 0.2s; }
+.scroll-delay-3 { transition-delay: 0.3s; }
+.scroll-delay-4 { transition-delay: 0.4s; }
+.scroll-delay-5 { transition-delay: 0.5s; }
+.scroll-delay-6 { transition-delay: 0.6s; }
+
 /* Stagger Animation Delays */
 .stagger-1 { animation-delay: 0.1s; }
 .stagger-2 { animation-delay: 0.2s; }
@@ -894,10 +965,39 @@ section {
   .fade-in-left,
   .fade-in-right,
   .fade-in,
-  .scale-in {
+  .scale-in,
+  .scroll-reveal,
+  .scroll-reveal-left,
+  .scroll-reveal-right,
+  .scroll-reveal-scale {
     animation: none;
     opacity: 1;
+    transform: none;
   }
+}
+
+/* Parallax Effect for Hero Sections */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Smooth section transitions */
+section {
+  position: relative;
+}
+
+/* Hover lift effect for interactive elements */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 /* Scrollbar - Modern Design */
@@ -1102,10 +1202,10 @@ textarea {
   }
 }
 
-/* Page Hero Section - Maximalist */
+/* Page Hero Section - Light Theme */
 .page-hero {
-  background: var(--dark-bg);
-  padding: 80px 0 100px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F5F7FA 100%);
+  padding: 40px 0 100px;
   text-align: left;
   position: relative;
   overflow: hidden;
@@ -1122,7 +1222,7 @@ textarea {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 50% 30%, rgba(0, 102, 255, 0.06) 0%, transparent 60%);
+  background: radial-gradient(circle at 50% 30%, rgba(0, 102, 255, 0.04) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -1132,7 +1232,7 @@ textarea {
   letter-spacing: -0.05em;
   line-height: 0.9;
   margin-bottom: 2rem;
-  color: var(--white);
+  color: var(--primary-navy);
   text-align: left;
 }
 
@@ -1143,7 +1243,7 @@ textarea {
 
 .page-hero p {
   font-size: 1.35rem;
-  color: var(--text-light);
+  color: var(--primary-blue);
   max-width: 55ch;
   margin: 0;
   line-height: 1.7;
@@ -1157,7 +1257,7 @@ textarea {
 
 @media (max-width: 768px) {
   .page-hero {
-    padding: 800px 0 60px;
+    padding: 80px 0 60px;
   }
   
   .page-hero h1 {

@@ -32,8 +32,8 @@ const getResponse = (message: string, isArabic: boolean): string => {
       ar: "رائع! يمكنك حجز استشارة مجانية من خلال موقعنا. سيقوم فريقنا بتحليل احتياجات عملك وإنشاء استراتيجية مخصصة. زر صفحة الاستشارة أو يمكنني توجيهك إليها. هل تريد أن أساعدك في البدء؟"
     },
     contact: {
-      en: "You can reach us through:\n\n📧 Email: adsgeniuslab@gmail.com\n📱 Phone: +92 318 1292628\n💬 WhatsApp: Available on our website\n\nOr visit our Contact page for more options. We typically respond within 24 hours!",
-      ar: "يمكنك التواصل معنا من خلال:\n\n📧 البريد الإلكتروني: adsgeniuslab@gmail.com\n📱 الهاتف: +92 318 1292628\n💬 واتساب: متاح على موقعنا\n\nأو زر صفحة التواصل لمزيد من الخيارات. نرد عادة خلال 24 ساعة!"
+      en: "You can reach us through:\n\n📧 Email: roomankhan2512@gmail.com\n📱 Phone: +92 318 1292628\n💬 WhatsApp: Available on our website\n\nOr visit our Contact page for more options. We typically respond within 24 hours!",
+      ar: "يمكنك التواصل معنا من خلال:\n\n📧 البريد الإلكتروني: roomankhan2512@gmail.com\n📱 الهاتف: +92 318 1292628\n💬 واتساب: متاح على موقعنا\n\nأو زر صفحة التواصل لمزيد من الخيارات. نرد عادة خلال 24 ساعة!"
     },
     seo: {
       en: "Our SEO services help improve your website's visibility in search engines. We focus on:\n\n✅ Keyword Research & Strategy\n✅ On-Page Optimization\n✅ Technical SEO\n✅ Link Building\n✅ Content Optimization\n\nWe've helped clients achieve 300%+ growth in organic traffic!",
@@ -106,7 +106,7 @@ const AIChatbot = () => {
       };
       setMessages([greeting]);
     }
-  }, [isOpen, isArabic]);
+  }, [isOpen, isArabic, messages.length]);
 
   // Scroll to bottom on new messages
   useEffect(() => {

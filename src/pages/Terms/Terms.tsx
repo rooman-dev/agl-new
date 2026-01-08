@@ -3,17 +3,15 @@ import { useLanguage } from '@context/LanguageContext';
 import '../PrivacyPolicy/PrivacyPolicy.css'; // Reuse legal styles
 
 const Terms = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <>
       <Helmet>
         <title>{t('terms_title')} - AdsGeniusLab</title>
-        <html lang={language} dir={language === 'ar' ? 'rtl' : 'ltr'} />
       </Helmet>
 
-      <main>
-        <section className="legal-hero">
+      <section className="legal-hero">
           <div className="container">
             <h1>{t('terms_title')}</h1>
             <p>{t('terms_last_updated')}</p>
@@ -86,7 +84,6 @@ const Terms = () => {
             </div>
           </div>
         </section>
-      </main>
     </>
   );
 };

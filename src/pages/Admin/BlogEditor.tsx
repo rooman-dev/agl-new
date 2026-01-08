@@ -1,5 +1,5 @@
 import { FC, useState, useEffect, FormEvent } from 'react';
-import { useNavigate, useParams, Link } from 'react-router-dom';
+import { useNavigate, useParams, Link, Navigate } from 'react-router-dom';
 import { useAdmin } from '@/context/AdminContext';
 import { useBlog, BlogPost } from '@/context/BlogContext';
 import './BlogEditor.css';
@@ -29,12 +29,6 @@ const BlogEditor: FC = () => {
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState('');
 
-  // Redirect if not authenticated
-  if (!isAuthenticated) {
-    navigate('/admin/login');
-    return null;
-  }
-
   useEffect(() => {
     if (isEditing && id) {
       const post = getPost(id);
@@ -57,6 +51,11 @@ const BlogEditor: FC = () => {
       }
     }
   }, [id, isEditing, getPost, navigate]);
+
+  // Redirect if not authenticated - must be after all hooks
+  if (!isAuthenticated) {
+    return <Navigate to="/admin/login" replace />;
+  }
 
   const generateSlug = (title: string) => {
     return title

@@ -4,13 +4,12 @@ import { useLanguage } from '@context/LanguageContext';
 import './NotFound.css';
 
 const NotFound = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <>
       <Helmet>
         <title>{t('error_404_title')} - AdsGeniusLab</title>
-        <html lang={language} dir={language === 'ar' ? 'rtl' : 'ltr'} />
       </Helmet>
 
       <main className="not-found-page">

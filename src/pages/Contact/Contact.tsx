@@ -2,10 +2,11 @@ import { useState, FormEvent, FC } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '@context/LanguageContext';
 import TypeWriter from '@/components/TypeWriter';
+import apiService from '@/services/api';
 import './Contact.css';
 
 const Contact: FC = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -15,6 +16,7 @@ const Contact: FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -24,13 +26,20 @@ const Contact: FC = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage('');
     
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      await apiService.sendContactForm({
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      });
       setSubmitStatus('success');
       setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-    } catch {
+    } catch (error) {
       setSubmitStatus('error');
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to send message');
     } finally {
       setIsSubmitting(false);
     }
@@ -40,8 +49,8 @@ const Contact: FC = () => {
     {
       icon: 'fas fa-envelope',
       title: t('contact_info_email'),
-      value: 'adsgeniuslab@gmail.com',
-      link: 'mailto:adsgeniuslab@gmail.com',
+      value: 'roomankhan2512@gmail.com',
+      link: 'mailto:roomankhan2512@gmail.com',
     },
     {
       icon: 'fas fa-phone-alt',
@@ -62,11 +71,9 @@ const Contact: FC = () => {
       <Helmet>
         <title>{t('contact_hero_title')} - AdsGeniusLab</title>
         <meta name="description" content={t('contact_hero_subtitle')} />
-        <html lang={language} dir={language === 'ar' ? 'rtl' : 'ltr'} />
       </Helmet>
 
-      <main>
-        {/* Hero Section */}
+      {/* Hero Section */}
         <section className="contact-hero">
           <div className="container">
             <h1 className="fade-in-up">
@@ -105,7 +112,7 @@ const Contact: FC = () => {
 
               {/* Contact Form */}
               <div className="contact-form-wrapper">
-                <h2>Send us a Message</h2>
+                <h2>{t('contact_form_title')}</h2>
                 
                 {submitStatus === 'success' ? (
                   <div className="success-message">
@@ -115,7 +122,7 @@ const Contact: FC = () => {
                       onClick={() => setSubmitStatus('idle')}
                       className="btn btn-primary"
                     >
-                      Send Another Message
+                      {t('contact_send_another')}
                     </button>
                   </div>
                 ) : (
@@ -184,7 +191,7 @@ const Contact: FC = () => {
                     {submitStatus === 'error' && (
                       <div className="error-message">
                         <i className="fas fa-exclamation-circle"></i>
-                        {t('form_error')}
+                        {errorMessage || t('form_error')}
                       </div>
                     )}
                     
@@ -196,7 +203,7 @@ const Contact: FC = () => {
                       {isSubmitting ? (
                         <>
                           <i className="fas fa-spinner fa-spin"></i>
-                          Sending...
+                          {t('contact_sending')}
                         </>
                       ) : (
                         <>
@@ -211,7 +218,6 @@ const Contact: FC = () => {
             </div>
           </div>
         </section>
-      </main>
     </>
   );
 };

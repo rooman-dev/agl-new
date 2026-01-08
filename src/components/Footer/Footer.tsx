@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
             <h4>{t('footer_contact_info')}</h4>
             <p>
               <i className="fas fa-envelope"></i>{' '}
-              <a href="mailto:adsgeniuslab@gmail.com">{t('footer_email')}</a>
+              <a href="mailto:roomankhan2512@gmail.com">{t('footer_email')}</a>
             </p>
             <p>
               <i className="fas fa-phone"></i>{' '}
@@ -78,7 +78,7 @@ const Footer: React.FC = () => {
             {' | '}
             <Link to="/privacy-policy">{t('footer_privacy')}</Link>
             {' | '}
-            <Link to="/terms-of-service">{t('footer_terms')}</Link>
+            <Link to="/terms">{t('footer_terms')}</Link>
           </p>
         </div>
       </div>
